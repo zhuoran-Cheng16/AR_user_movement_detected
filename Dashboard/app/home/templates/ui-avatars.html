@@ -2,153 +2,21 @@
 
 {% block title %} UI Avatars {% endblock %} 
 
-<!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
 
-{% block content %}
-
-	<div class="content">
-		<div class="page-inner">
-			<div class="page-header">
-				<h4 class="page-title">Avatars</h4>
-				<ul class="breadcrumbs">
-					<li class="nav-home">
-						<a href="#">
-							<i class="flaticon-home"></i>
-						</a>
-					</li>
-					<li class="separator">
-						<i class="flaticon-right-arrow"></i>
-					</li>
-					<li class="nav-item">
-						<a href="#">Base</a>
-					</li>
-					<li class="separator">
-						<i class="flaticon-right-arrow"></i>
-					</li>
-					<li class="nav-item">
-						<a href="#">Avatars</a>
-					</li>
-				</ul>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-header">
-							<h4 class="card-title">Sizing</h4>
-							
-						</div>
-						<div class="card-body">
-							<p class="demo">
-								<div class="avatar avatar-xxl">
-									<img src="/static/assets/img/pok.jpeg" alt="..." class="avatar-img rounded-circle">
-								</div>
-
-								<div class="avatar avatar-xl">
-									<img src="/static/assets/img/pok.jpeg" alt="..." class="avatar-img rounded-circle">
-								</div>
-
-								<div class="avatar avatar-lg">
-									<img src="/static/assets/img/pok.jpeg" alt="..." class="avatar-img rounded-circle">
-								</div>
-
-								<div class="avatar">
-									<img src="/static/assets/img/pok.jpeg" alt="..." class="avatar-img rounded-circle">
-								</div>
-
-								<div class="avatar avatar-sm">
-									<img src="/static/assets/img/pok.jpeg" alt="..." class="avatar-img rounded-circle">
-								</div>
-
-								<div class="avatar avatar-xs">
-									<img src="/static/assets/img/pok.jpeg" alt="..." class="avatar-img rounded-circle">
-								</div>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-header">
-							<h4 class="card-title">Status Indicator</h4>
-							
-						</div>
-						<div class="card-body">
-							<p class="demo">
-								<div class="avatar avatar-online">
-									<img src="/static/assets/img/pok.jpeg" alt="..." class="avatar-img rounded-circle">
-								</div>
-
-								<div class="avatar avatar-offline">
-									<img src="/static/assets/img/pok.jpeg" alt="..." class="avatar-img rounded-circle">
-								</div>
-
-								<div class="avatar avatar-away">
-									<img src="/static/assets/img/pok.jpeg" alt="..." class="avatar-img rounded-circle">
-								</div>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-header">
-							<h4 class="card-title">Shape</h4>
-							
-						</div>
-						<div class="card-body">
-							<p class="demo">
-								<div class="avatar">
-									<img src="/static/assets/img/pok.jpeg" alt="..." class="avatar-img rounded">
-								</div>
-
-								<div class="avatar">
-									<img src="/static/assets/img/pok2.jpeg" alt="..." class="avatar-img rounded-circle">
-								</div>
-
-								<div class="avatar">
-									<img src="/static/assets/img/pok3.jpeg" alt="..." class="avatar-img rounded-circle">
-								</div>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-header">
-							<h4 class="card-title">Group</h4>
-							
-						</div>
-						<div class="card-body">
-							<p class="demo">
-								<div class="avatar-group">
-									<div class="avatar">
-										<img src="/static/assets/img/pok.jpeg" alt="..." class="avatar-img rounded-circle border border-white">
-									</div>
-									<div class="avatar">
-										<img src="/static/assets/img/pok2.jpeg" alt="..." class="avatar-img rounded-circle border border-white">
-									</div>
-									<div class="avatar">
-										<img src="/static/assets/img/pok3.jpeg" alt="..." class="avatar-img rounded-circle border border-white">
-									</div>
-									<div class="avatar">
-										<span class="avatar-title rounded-circle border border-white">Z</span>
-									</div>
-								</div>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-{% endblock content %}
-
-<!-- Specific Page JS goes HERE  -->
+Specific Page JS goes HERE 
 {% block javascripts %}
 
 	<!-- Atlantis DEMO methods, don't include it in your project! -->
-	<script src="/static/assets/js/setting-demo2.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
+</script>
+<body>
+	<iframe src="https://storage.googleapis.com/tfjs-models/demos/posenet/camera.html"    frameborder="0" width="1000" height="1000" allow="microphone;camera;midi;encrypted-media;"></iframe>
+
+<!-- <iframe width="100%" src="https://storage.googleapis.com/tfjs-models/demos/posenet/camera.html" 
+align="right" height="6000" id="win" name="win" onload="Javascript:SetWinHeight(this)" 
+frameborder="0" scrolling="yes"allow="microphone;camera;midi;encrypted-media;"></iframe> -->
+</body>
+</html>
 
 {% endblock javascripts %}

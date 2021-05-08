@@ -1,1 +1,155 @@
-<!-- NOT_IMPLEMENTED -->
+{% extends "base.html" %}
+{% block content %}
+
+<script>
+
+    function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+    }
+
+
+    function showStats1(){
+        $(".stat1").fadeOut(1000, function() {
+        $(".stat1").html('').load("{% url 'showStats1' %}"); 
+        $(".stat1").fadeIn();
+    });
+    }
+
+    function showStats2(){
+        $(".stat2").fadeOut(1000, function() {
+        $(".stat2").html('').load("{% url 'showStats2' %}"); 
+        $(".stat2").fadeIn();
+    });
+    }
+
+    function showStats3(){
+        $(".stat3").fadeOut(1000, function() {
+        $(".stat3").html('').load("{% url 'showStats3' %}"); 
+        $(".stat3").fadeIn();
+    });
+    }
+
+    function showStats4(){
+        $(".stat4").fadeOut(1000, function() {
+        $(".stat4").html('').load("{% url 'showStats4' %}"); 
+        $(".stat4").fadeIn();
+    });
+    }
+
+
+    function getWorkout(){
+        $.ajax({
+        type: 'GET',
+        url: "{% url 'showWorkout' %}",
+        data: {'name': $('.workoutSelector').find('option:selected').attr("name")},
+        success: function(response){  
+            $(".workoutInfo").html(response)
+        }
+        });
+    }
+
+    function playSound(){
+        $(".sound").html('').load("{% url 'playSound' %}"); 
+        setTimeout(playSound, 1200);
+    }
+
+    $(document).on("change", ".workoutSelector", function(){
+        getWorkout();
+    });
+
+    
+    playSound();
+    setInterval(showStats1, 1000);
+    setInterval(showStats2, 1000);
+    setInterval(showStats3, 1000);
+    setInterval(showStats4, 1000);
+    setTimeout(getWorkout, 100);
+
+
+  
+</script>
+
+<div class="container">
+<div class='row mt-5 justify-content-between upperRowContent'>
+    <div class='col-8 streamSection'>
+        <img class='streamVideo' src="{% url 'videostream' stream_path='video' %}">
+    </div>
+
+
+    <div class='col-3 workoutSelection'>
+        <div class='row d-flex justify-content-center selectRow'>
+            <h5>Select Workout</h5>
+        </div>
+        <div class='row d-flex justify-content-center workoutSelectionRow'>
+            <form action="" method="post">
+                <select name="workout" class="workoutSelector">
+                    {% for workout in workouts %}
+                    <option name="{{ workout }}">{{ workout }}</option>
+                    {% endfor %}
+                    
+                </select>
+            </form>
+        </div>
+        <div class='row d-flex justify-content-center workoutInfoRow'>
+            <div class = 'workoutInfo'>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class='row mt-5 justify-content-between lowerRowContent'>
+    <div class="col-2 liveStatsColumn">
+        <b>Training Time </b>
+        <div class='stat1'>
+
+        </div>
+
+    </div>
+
+    <div class="col-2 liveStatsColumn">
+        <b>Resting Time </b>
+        <div class='stat2'>
+
+        </div>
+    </div>
+    <div class="col-2 liveStatsColumn">
+        <b>Performing Time </b>
+        <div class='stat3'>
+
+        </div>
+    </div>
+    <div class="col-2 liveStatsColumn">
+        <b>Total Moves </b>
+        <div class='stat4'>
+
+        </div>
+    </div>
+
+
+    <div class='col-3 buttonsCol'>
+        <div class='row mt-3 justify-content-center btn1'>
+            <form action="{% url 'startWorkout' %}" method='get'>
+                <button class='startWorkout' type="submit">Start Workout</button>
+            </form>
+    </div>
+    <div class='row justify-content-center btn2'>
+        <form action="{% url 'stopWorkout' %}" method='get'>
+            <button class='stopWorkout' type="submit">Stop Workout</button>
+        </form>
+    </div>
+    </div>
+
+</div>
+
+<div class = "sound">
+</div>
+
+</div>
